@@ -16,11 +16,11 @@ fun main(args: Array<String>) {
 fun createArray() {
     // [1, 2, 3]
     var arr1 = arrayOf(1, 2, 3)
-    // [2, 4, 8]
+    // [4, 6, 8]
     var arr2 = Array(3, {i -> ((i + 2) * 2)})
 
     // 中括号 [] 运算符重载了数组的 get() , set() 方法, 通过下表访问对应位置的值
     println(arr1[0])
 //    println(arr1[3]) // java.lang.ArrayIndexOutOfBoundsException
-    println(arr2[2])
+    println(arr2[1])
 }

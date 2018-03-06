@@ -40,7 +40,7 @@ class BusDriver(name: String, age: Int, var model: String) : Driver(name, age), 
      * 重写父类有多个相同方法时, 使用 super 关键字选择性的调用父类实现
      */
     override fun driver() {
-        super<IDriver>.driver()
+//        super<IDriver>.driver()
         super<Driver>.driver()
         println("driver $model, weight : $weight")
     }
@@ -64,8 +64,20 @@ class TaxiDriver : Driver {
 }
 
 interface IDriver {
-    fun driver() {
-        println(" driver interface")
+    fun driver()
+}
+
+class User {
+
+    var driver: IDriver
+
+    constructor(driver: IDriver) {
+        this.driver = driver
+    }
+
+    fun pay(price: Int) {
+        println("spend $price ride")
+        driver.driver()
     }
 }
 
@@ -75,4 +87,7 @@ fun main(args: Array<String>) {
 
     var taxiDriver = TaxiDriver("taxiDriver", 44, "volvo")
     taxiDriver.driver()
+
+    var user = User(busDriver)
+    user.pay(20)
 }
