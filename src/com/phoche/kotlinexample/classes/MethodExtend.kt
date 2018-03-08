@@ -12,7 +12,7 @@ fun String.getStart(): String {
     if (s == null && s == "") {
         return ""
     } else {
-        return s.substring(0, 3)
+        return substring(0, 3)
     }
 }
 
