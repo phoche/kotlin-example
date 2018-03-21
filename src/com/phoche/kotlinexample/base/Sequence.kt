@@ -14,8 +14,8 @@ fun listOperator() {
     val currentTimeMillis = System.currentTimeMillis()
     val list = createList()
     val newList = list.map(Person::name)
-            .filter { it.startsWith("a") }
-    println("size = ${newList.size} time = ${System.currentTimeMillis() - currentTimeMillis}")
+            .find { it.startsWith("c") }
+    println("$newList time = ${System.currentTimeMillis() - currentTimeMillis}")
 }
 
 fun sequenceOperator() {
@@ -23,9 +23,8 @@ fun sequenceOperator() {
     val sequence = createList()
     val newSequence = sequence.asSequence()
             .map(Person::name)
-            .filter { it.startsWith("a") }
-            .toList()
-    println("size = ${newSequence.size} time = ${System.currentTimeMillis() - currentTimeMillis}")
+            .find { it.startsWith("c") }
+    println("$newSequence time = ${System.currentTimeMillis() - currentTimeMillis}")
 }
 
 fun createList(): MutableList<Person> {

@@ -1,11 +1,18 @@
 package com.phoche.kotlinexample.base
 
+
 /**
  * Create by qinpc on 2018/2/27
  */
 fun main(args: Array<String>) {
     iterated()
     multipleLine()
+
+    val s1 = "Hello"
+    val s2 = ""
+
+    s1.getPrefix()?.let { println(it) } // H
+    s2.getPrefix()?.let { println(it) } // nothing
 }
 
 /**
@@ -35,5 +42,13 @@ fun multipleLine() {
         |低头思故乡
         """.trimMargin()
     println(text)
+
     println("=======================")
 }
+
+fun String.getPrefix() = when {
+    isEmpty() -> null
+    else -> substring(0, 1)
+}
+
+
